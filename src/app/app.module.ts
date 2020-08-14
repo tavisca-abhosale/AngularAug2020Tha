@@ -5,6 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {SimpleComponent} from './simplecomponent';
+import {CalcComponent} from './calccomponent';
 import {ProductFormComponent} from './components/productformcomponent/app.productform.component';
 import { TableDirectiveComponent } from './directive/componentdirective/app.tablecomponent.directive';
 import { ProductReactiveFormComponent } from './components/productreactiveformcomponent/app.productreactiveform.component';
@@ -23,7 +24,7 @@ import { ProductReactiveFormComponent } from './components/productreactiveformco
 // load and render in browser
 @NgModule({
   declarations: [
-    AppComponent, SimpleComponent, ProductFormComponent,
+    AppComponent, SimpleComponent, CalcComponent, ProductFormComponent,
     TableDirectiveComponent, ProductReactiveFormComponent
   ],
   imports: [

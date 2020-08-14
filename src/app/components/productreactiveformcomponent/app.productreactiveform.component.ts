@@ -39,14 +39,39 @@ export class ProductReactiveFormComponent implements OnInit {
           Validators.pattern('[0-9]*'),
           CustomValidator.CheckEven
         ])),
-       ProductId : new FormControl(this.product.ProductId),
-       ProductName : new FormControl(this.product.ProductName),
-       CategoryName : new FormControl(this.product.CategoryName),
-       Manufacturer : new FormControl(this.product.Manufacturer),
-       Description : new FormControl(this.product.Description),
-       BasePrice : new FormControl(this.product.BasePrice)
+       ProductId : new FormControl(this.product.ProductId,        
+          Validators.compose([
+          Validators.required,
+          CustomValidator.CheckSpace
+        ])),
+        
+       ProductName : new FormControl(this.product.ProductName,
+        Validators.compose([
+          Validators.required,
+          Validators.pattern(/^[A-Za-z0-9 ]+$/)
+
+        ])),
+       CategoryName : new FormControl(this.product.CategoryName,
+        Validators.compose([
+          Validators.required
+        ])),
+       Manufacturer : new FormControl(this.product.Manufacturer,
+        Validators.compose([
+          Validators.required
+        ])),
+       Description : new FormControl(this.product.Description,
+        Validators.compose([
+        Validators.required,
+        CustomValidator.CheckLength
+        ])),
+       BasePrice : new FormControl(this.product.BasePrice,
+        Validators.compose([
+          Validators.required,
+          CustomValidator.CheckPositive
+        ]))
     });
 
+      
 
   }
 
@@ -76,4 +101,7 @@ export class ProductReactiveFormComponent implements OnInit {
    this.product = Object.assign({}, event);
    this.frmProduct.setValue(this.product);
   }
+
+ 
+
 }
